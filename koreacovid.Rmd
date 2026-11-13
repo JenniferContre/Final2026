@@ -27,15 +27,44 @@ Variables of interest: sex, result
 Research Question: - Is dying independent of sex?
 
 # Introduction
-Is
+Based of the dataset from the Patient_Info dataset from South Korea, is death independent from sex concerning Covid-19? 
+
+$H_0$: There is no relationship between Covid-19 deaths and the sex of the patient in South Korea from January to May of 2020. 
+
+$H_A$: There is a relationship between Covid-19 deaths and the sex of the patient in South Korea from January to May of 2020. 
+
+## Methods 
+Deaths from Covid-19 or the results is categorical. 
+
+Sex is categorical. 
 
 # Data Results
-
 ## Graphical results    
+```{r}
+barchartGC(~result + Sex,data=kRdata)
+barchartGC(~result + Sex,data=kRdata, type="percent")
+
+```
+
+According to this bar chart, there was a higher percentage of females that survived Covid-19 than men and a higher percentage of men that died from Covid-19 than women. 
 
 ## Numerical results
+```{r}
+table1 <- xtabs(~result + Sex, data=kRdata)
+rowPerc(table1)
+colPerc(table1)
+```
+
+According to this table, there appeared to be higher deaths among men than women. Women have percentages of higher survivial rates concerning Covid-19. 
 
 ## Inferential results 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+The p-value is 0.001 which is less than 0.05. This means we will reject the null hypothesis and that we conclude that there is a relationship between sex and death from Covid-19 in South Korea from January to May in 2020. 
 
 # Conclusions
 
