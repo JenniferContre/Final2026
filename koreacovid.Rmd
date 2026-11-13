@@ -27,6 +27,7 @@ Variables of interest: sex, result
 Research Question: - Is dying independent of sex?
 
 # Introduction
+Is
 
 # Data Results
 
